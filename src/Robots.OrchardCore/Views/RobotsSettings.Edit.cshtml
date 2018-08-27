@@ -1,0 +1,6 @@
+@model Robots.OrchardCore.ViewModels.RobotsSettingsViewModel
+
+<fieldset class="form-group" asp-validation-class-for="Text">
+    <label asp-for="Text">@T["Robots.txt"] <span asp-validation-for="Text"></span></label>
+    <textarea asp-for="Text" class="form-control" rows="10"></textarea>
+</fieldset>
