@@ -1,6 +1,7 @@
 using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Localization;
-using OrchardCore.Environment.Navigation;
+using OrchardCore.Navigation;
 using Robots.OrchardCore.Drivers;
 
 namespace Robots.OrchardCore {
@@ -11,9 +12,9 @@ namespace Robots.OrchardCore {
 
         public IStringLocalizer T { get; set; }
 
-        public void BuildNavigation(string name, NavigationBuilder builder) {
+        public Task BuildNavigationAsync(string name, NavigationBuilder builder) {
             if (!String.Equals(name, "admin", StringComparison.OrdinalIgnoreCase)) {
-                return;
+                return Task.CompletedTask;
             }
 
             builder
@@ -25,6 +26,8 @@ namespace Robots.OrchardCore {
                             .Permission(Permissions.ManageRobots)
                             .LocalNav()
                         )));
+
+            return Task.CompletedTask;
         }
     }
 }
