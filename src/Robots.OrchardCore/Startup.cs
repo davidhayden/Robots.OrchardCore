@@ -20,9 +20,9 @@ namespace Robots.OrchardCore {
             services.AddScoped<IRobotsService, RobotsService>();
         }
 
-        public override void Configure(IApplicationBuilder builder, IRouteBuilder routes,
+        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes,
             IServiceProvider serviceProvider) {
-            routes.MapAreaRoute(
+            routes.MapAreaControllerRoute(
                 "Home",
                 "Robots.OrchardCore",
                 "robots.txt",
